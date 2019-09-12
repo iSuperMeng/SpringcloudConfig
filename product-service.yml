@@ -1,57 +1,17 @@
 spring:
   application:
-    name: order-service
+    name: product-service
   zipkin:
     base-url: http://localhost:9411/
 
-
-  redis:
-    database: 0
-    timeout: 0
-      # Redis服务器地址
-    host: 127.0.0.1
-      # Redis服务器连接端口
-    port: 6379
-      # Redis服务器连接密码（默认为空）
-    password: root
-      # 连接池最大连接数（使用负值表示没有限制）
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-
   server:
     enable-self-preservation: false
 
+
 server:
-  port: 8775
-
-
-product-service:
-  ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 5000
-        readTimeout: 5000
-  hystrix:
-    enabled: true
-
-
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+  port: 8772
